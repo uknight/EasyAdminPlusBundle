@@ -36,7 +36,7 @@ class FilterSubscriber implements EventSubscriberInterface
             return;
         }
         
-        $entity = $this->easyadmin_config_manager->getEntityConfiguration($entityName);
+        $entity = $this->easyadmin_config_manager->getEntityConfig($entityName);
         if (isset($entity['filter'])) {
             $this->filterState->bindRequest($request, $entity);
         }
