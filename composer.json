@@ -1,7 +1,7 @@
 {
-    "name": "2lenet/easyadmin-plus-bundle",
+    "name": "uknight/easyadmin-plus-bundle",
     "type": "symfony-bundle",
-    "description": "2lenet/EasyAdminPlusBundle",
+    "description": "uknight/EasyAdminPlusBundle",
     "keywords": [
         "Symfony",
         "Bundle",
