@@ -205,7 +205,7 @@
     {% set _list_item_actions = easyadmin_get_actions_for_list_item(_entity_config.name) %}
 
 
-    {{ include(_entity_config.templates.paginator) }}
+    {#{{ include(_entity_config.templates.paginator) }}#}
 
     {% if _entity_config.list.hasBatchActions %}
         <form action="#" method="POST" name="bulkform">
@@ -213,7 +213,7 @@
     {% endif %}
 
     <div class="table-responsive">
-        <table class="table">
+        <table class="table datagrid">
             <thead>
             {% block table_head %}
                 <tr>
