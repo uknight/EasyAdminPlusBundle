@@ -365,9 +365,9 @@
     {% endblock batchActions %}
 
 
-    {% block paginator %}
+    {#{% block paginator %}
         {{ include(_entity_config.templates.paginator) }}
-    {% endblock paginator %}
+    {% endblock paginator %}#}
 
     {% block delete_form %}
         {% set referer = paginator.currentPage == paginator.nbPages and 1 != paginator.currentPage and 1 == paginator.currentPageResults|length
