@@ -369,7 +369,7 @@ class AdminController extends BaseAdminController
         } else {
             return new RedirectResponse('/');
         }
-    }    
+    }
 
 
     public function historyAction(Request $request, $item)
@@ -644,10 +644,9 @@ class AdminController extends BaseAdminController
     /**
      * batch action.
      *
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function batchAction()
+    public function batchAction(): RedirectResponse
     {
         $name = $this->request->request->get('name') ?? $this->request->query->get('name');
         $ids = $this->request->request->get('ids') ?? $this->request->query->get('ids');
