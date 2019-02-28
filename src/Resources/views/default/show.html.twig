@@ -11,7 +11,7 @@
           {% set _request_parameters = { entity: _entity_config.name, referer: app.request.query.get('referer') } %}
           {% set _show_actions = _show_actions|prune_item_actions(_entity_config, [], entity) %}
 
-   <div class=" pull-right btn-group ">
+   {#<div class=" pull-right btn-group ">
       {% block show_actions %}
           {{ include('@LleEasyAdminPlus/default/includes/_actions.html.twig', {
               actions: _show_actions,
@@ -21,7 +21,7 @@
               item_id: _entity_id
           }, with_context = false) }}
       {% endblock show_actions %}
-  </div>
+  </div>#}
   {{ parent() }}
   {% if _entity_config.show.header_template is defined %}
       {{ include(_entity_config.show.header_template, {
@@ -74,7 +74,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="general">
     {% block show_fields %}
-        <div class="form-horizontal row">
+        <div class="form-horizontal">
         {% set div_ouvert = false %}
         {% for field, metadata in fields if metadata.type not in ['tab','sublist']  %}
           {% if metadata.type == 'group' %}
@@ -156,6 +156,7 @@
   </div>
   <!-- /.nav-tabs-custom -->
 </div>
+<span class="content-footer">
   <div class="button-action">
       {% block item_actions %}
           {% set _show_actions = easyadmin_get_actions_for_show_item(_entity_config.name) %}
@@ -171,7 +172,6 @@
           }, with_context = false) }}
       {% endblock item_actions %}
   </div>
-
     {% block delete_form %}
         {{ include('@EasyAdmin/default/includes/_delete_form.html.twig', {
             view: 'show',
@@ -182,6 +182,8 @@
             _entity_config: _entity_config,
         }, with_context = false) }}
     {% endblock delete_form %}
+
+</span>
 {% endblock %}
 
 {% block body_javascript %}
