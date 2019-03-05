@@ -15,13 +15,13 @@
             <div class="col-xs-12 col-sm-9">
                 <ul class="pager pagination list-pagination-paginator {{ 1 == paginator.currentPage ? 'first-page' : '' }} {{ paginator.hasNextPage ? '' : 'last-page' }}">
                     {% if 1 == paginator.currentPage %}
-                        <li class="btn-secondary disabled">
+                        <li class="btn btn-secondary disabled">
                             <span class="btn-label">
                                 <i class="fa fa-angle-double-left"></i> {{ 'paginator.first'|trans }}
                             </span>
                         </li>
                     {% else %}
-                        <li class="btn-secondary">
+                        <li class="btn btn-secondary">
                             <a href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: 1 }) ) }}" class="btn-label">
                                 <i class="fa fa-angle-double-left"></i> {{ 'paginator.first'|trans }}
                             </a>
@@ -29,33 +29,33 @@
                     {% endif %}
 
                     {% if paginator.hasPreviousPage %}
-                        <li class="btn-secondary">
+                        <li class="btn btn-secondary">
                             <a href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: paginator.previousPage }) ) }}" class="btn-label">
                                 <i class="fa fa-angle-left"></i> {{ 'paginator.previous'|trans }}
                             </a>
                         </li>
                     {% else %}
-                        <li class="btn-secondary disabled">
+                        <li class="btn btn-secondary disabled">
                             <span class="btn-label">
                                 <i class="fa fa-angle-left"></i> {{ 'paginator.previous'|trans }}
                             </span>
                         </li>
                     {% endif %}
 
-                    <li class="btn-secondary">
+                    <li class="btn btn-secondary">
                         <span class="btn-label">
                             {{ paginator.currentPage }} / {{paginator.nbPages}}
                         </span>
                     </li>
 
                     {% if paginator.hasNextPage %}
-                        <li class="btn-secondary">
+                        <li class="btn btn-secondary">
                             <a href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: paginator.nextPage }) ) }}" class="btn-label">
                                 {{ 'paginator.next'|trans }} <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
                     {% else %}
-                        <li class="btn-secondary disabled">
+                        <li class="btn btn-secondary disabled">
                             <span class="btn-label">
                                 {{ 'paginator.next'|trans }} <i class="fa fa-angle-right"></i>
                             </span>
@@ -63,13 +63,13 @@
                     {% endif %}
 
                     {% if paginator.currentPage < paginator.nbPages %}
-                        <li class="btn-secondary">
+                        <li class="btn btn-secondary">
                             <a href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: paginator.nbPages }) ) }}" class="btn-label">
                                 {{ 'paginator.last'|trans }} <i class="fa fa-angle-double-right"></i>
                             </a>
                         </li>
                     {% else %}
-                        <li class="btn-secondary disabled">
+                        <li class="btn btn-secondary disabled">
                             <span class="btn-label">
                                 {{ 'paginator.last'|trans }} <i class="fa fa-angle-double-right"></i>
                             </span>
