@@ -25,6 +25,10 @@ class NumberRangeFilterType extends AbstractFilterType
       
     }
 
+    public function getStateTemplate(){
+        return '@LleEasyAdminPlus/filter/state/number_range_filter.html.twig';
+    }
+
     public function getTemplate(){
         return '@LleEasyAdminPlus/filter/type/number_range_filter.html.twig';
     }
