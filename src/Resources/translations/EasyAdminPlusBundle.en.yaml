@@ -124,3 +124,18 @@ Réinitialiser: Reset
 Actions massives: Batch actions
 Filtrer les résultats: Filter results
 form.url_auto_complet.placeholder: Choose a value
+
+# filter stuff
+from: from
+to:   to
+
+filter:
+    contains:     Contains
+    starts_with:  Starts with
+    ends_with:    Ends with
+    is_empty:     Is empty
+    is_not_empty: Is not empty
+
+    date:         Date
+    before:       Before
+    after:        After

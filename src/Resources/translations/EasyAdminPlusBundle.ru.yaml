@@ -98,8 +98,8 @@ history:
         delete: deleted by
         create: created by  
 Rechercher: Поиск
-Filtrer: Filter
-Effacer: Clear
+Filtrer: Фильтровать
+Effacer: Сбросить
 label.batchActions:
     title: "Choose"
     help: "Select items"
@@ -124,3 +124,18 @@ Réinitialiser: Reset
 Actions massives: Batch actions
 Filtrer les résultats: Фильтровать результаты
 form.url_auto_complet.placeholder: Выберите значение
+
+# filters
+from: от
+to:   до
+
+filter:
+    contains:     Содержит
+    starts_with:  Ничинается с
+    ends_with:    Заканчивается на
+    is_empty:     Пусто
+    is_not_empty: Не пусто
+
+    date:         Дата
+    before:       До
+    after:        После

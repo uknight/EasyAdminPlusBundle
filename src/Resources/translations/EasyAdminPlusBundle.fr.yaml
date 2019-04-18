@@ -130,3 +130,18 @@ Réinitialiser: Réinitialiser
 Actions massives: Actions massives
 Filtrer les résultats: Filtrer les résultats
 form.url_auto_complet.placeholder: Choisir une valeur
+
+# filters
+from: de
+to:   à
+
+filter:
+    contains:     Contient
+    starts_with:  Commence par
+    ends_with:    Termine par
+    is_empty:     Est vide
+    is_not_empty: Est non vide
+
+    date:         Le
+    before:       Avant le
+    after:        Après le
