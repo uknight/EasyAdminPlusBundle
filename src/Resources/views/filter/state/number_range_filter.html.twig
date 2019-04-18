@@ -1,4 +1,4 @@
-{% if data['value'][0] or data['value'][1] %}
+{% if data['value'] and ( data['value'][0] or data['value'][1] ) %}
     <span class="filter-state">
         <small>{{ filtertype.filterLabel |trans }}</small>
         <span class="badge">{{ data['value'][0] }}&thinsp;&ndash;&thinsp;{{ data['value'][1] }}</span>
