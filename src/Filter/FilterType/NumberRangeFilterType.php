@@ -12,14 +12,14 @@ class NumberRangeFilterType extends AbstractFilterType
 
     public function apply($queryBuilder)
     {
-      if (isset($data['value'][0]) or isset($data['value'][1])) {
-        if($data['value'][0]){
+      if (isset($this->data['value'][0]) or isset($this->data['value'][1])) {
+        if($this->data['value'][0]){
           $queryBuilder->andWhere($this->alias . $this->columnName .' >= :min_'.$this->uniqueId);
-          $queryBuilder->setParameter('min_'.$this->uniqueId, $data['value'][0]);
+          $queryBuilder->setParameter('min_'.$this->uniqueId, $this->data['value'][0]);
         }
-        if($data['value'][1]) {
+        if($this->data['value'][1]) {
           $queryBuilder->andWhere($this->alias . $this->columnName .' <= :max_'.$this->uniqueId);
-          $queryBuilder->setParameter('max_'.$this->uniqueId, $data['value'][1]);
+          $queryBuilder->setParameter('max_'.$this->uniqueId, $this->data['value'][1]);
         }
       }
       
