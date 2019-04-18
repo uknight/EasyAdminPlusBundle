@@ -145,3 +145,7 @@ filter:
     date:         Le
     before:       Avant le
     after:        Après le
+
+    true:         Oui
+    false:        Non
+    all:          Tous

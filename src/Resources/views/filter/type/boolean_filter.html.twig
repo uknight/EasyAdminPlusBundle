@@ -1,5 +1,11 @@
+{% trans_default_domain 'EasyAdminPlusBundle' %}
+
 <select class="form-control" name="{{nameprefix}}value{{namesuffix}}">
     <option value="all">Tous</option>
-    <option value="true" {% if  filtertype.isSelected(data,"true") %} selected="selected" {% endif %}>Oui</option>
-    <option value="false" {% if filtertype.isSelected(data,"false") %} selected="selected" {% endif %}>Non</option>
+    <option value="true" {% if  filtertype.isSelected(data,"true") %} selected="selected" {% endif %}>
+        {{ 'filter.true'|trans }}
+    </option>
+    <option value="false" {% if filtertype.isSelected(data,"false") %} selected="selected" {% endif %}>
+        {{ 'filter.false'|trans }}
+    </option>
 </select>

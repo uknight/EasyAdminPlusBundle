@@ -140,3 +140,7 @@ filter:
     date:         Дата
     before:       До
     after:        Після
+
+    true:         Так
+    false:        Ні
+    all:          Всі

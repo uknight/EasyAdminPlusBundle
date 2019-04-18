@@ -139,3 +139,7 @@ filter:
     date:         Дата
     before:       До
     after:        После
+
+    true:         Да
+    false:        Нет
+    all:          Все

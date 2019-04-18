@@ -139,3 +139,7 @@ filter:
     date:         Date
     before:       Before
     after:        After
+
+    true:         Yes
+    false:        No
+    all:          All
