@@ -38,10 +38,13 @@
            name="{{ nameprefix }}comparator{{ namesuffix }}"
            {% if data.comparator is defined %}value="{{ data.comparator }}"{% endif %}>
 
-    <input type="text" name="{{ nameprefix }}value{{ namesuffix }}"
+    <input type="text"
+           name="{{ nameprefix }}value{{ namesuffix }}"
            class="form-control form_datepicker{{ nameprefix }}{{ namesuffix }}"
            id="_{{ nameprefix }}value{{ namesuffix }}"
-           {% if data.value is defined %}value="{{ data.value }}"{% endif %} />
+           {% if data.value is defined %}value="{{ data.value }}"{% endif %}
+           autocomplete="off"
+    />
 </div><!-- /input-group -->
 
 <script>
