@@ -140,6 +140,6 @@ filter:
     before:       Before
     after:        After
 
-    true:         Yes
-    false:        No
+    'true':       Yes
+    'false':      No
     all:          All

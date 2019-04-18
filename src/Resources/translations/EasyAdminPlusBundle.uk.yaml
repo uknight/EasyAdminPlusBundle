@@ -141,6 +141,6 @@ filter:
     before:       До
     after:        Після
 
-    true:         Так
-    false:        Ні
+    'true':       Так
+    'false':      Ні
     all:          Всі
