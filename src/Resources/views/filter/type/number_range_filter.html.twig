@@ -1,3 +1,5 @@
+{% trans_default_domain 'EasyAdminPlusBundle' %}
+
 <div class="row">
   <div class="col-lg-6">
     <input type="text" placeholder="{{ 'from'|trans }}" {% if data.value[0] is defined %} value="{{data.value[0]}}" {% endif %} class="form-control col-md-6" name="{{nameprefix}}value{{namesuffix}}[]">
