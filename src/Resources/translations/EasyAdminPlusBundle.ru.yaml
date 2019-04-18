@@ -140,6 +140,6 @@ filter:
     before:       До
     after:        После
 
-    true:         Да
-    false:        Нет
+    'true':       Да
+    'false':      Нет
     all:          Все

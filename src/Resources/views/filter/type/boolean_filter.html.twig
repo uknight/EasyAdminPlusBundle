@@ -1,7 +1,7 @@
 {% trans_default_domain 'EasyAdminPlusBundle' %}
 
 <select class="form-control" name="{{nameprefix}}value{{namesuffix}}">
-    <option value="all">Tous</option>
+    <option value="all">{{ 'filter.all'|trans }}</option>
     <option value="true" {% if  filtertype.isSelected(data,"true") %} selected="selected" {% endif %}>
         {{ 'filter.true'|trans }}
     </option>
