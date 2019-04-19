@@ -448,10 +448,8 @@ class AdminController extends BaseAdminController
             }
 
             $this->dispatch(EasyAdminEvents::PRE_PERSIST, array('entity' => $entity));
-
-            $this->executeDynamicMethod('prePersist<EntityName>Entity', array($entity, true));
+//            $this->executeDynamicMethod('prePersist<EntityName>Entity', array($entity, true));
             $this->executeDynamicMethod('persist<EntityName>Entity', array($entity));
-
             $this->dispatch(EasyAdminEvents::POST_PERSIST, array('entity' => $entity));
 
             return $this->redirectToReferrer();
