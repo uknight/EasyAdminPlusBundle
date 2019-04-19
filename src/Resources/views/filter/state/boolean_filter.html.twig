@@ -1,12 +1,10 @@
-{% trans_default_domain 'EasyAdminPlusBundle' %}
-
 {% if data['value'] is defined and data['value'] and data['value'] != filtertype.defaults['value'] %}
     <span class="filter-state">
         <small>{{ filtertype.filterLabel |trans }}</small>
         <span class="badge">
-            {% if data['value']=='true' %}{{ 'filter.true'|trans }}{% endif %}
-            {% if data['value']=='false' %}{{ 'filter.false'|trans }}{% endif %}
-            {% if data['value']=='all' %}{{ 'filter.all'|trans }}{% endif %}
+            {% if data['value']=='true' %}{{ 'filter.true'|trans({}, 'EasyAdminPlusBundle') }}{% endif %}
+            {% if data['value']=='false' %}{{ 'filter.false'|trans({}, 'EasyAdminPlusBundle') }}{% endif %}
+            {% if data['value']=='all' %}{{ 'filter.all'|trans({}, 'EasyAdminPlusBundle') }}{% endif %}
         </span>
     </span>
 {% endif %}
