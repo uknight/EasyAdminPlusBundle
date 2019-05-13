@@ -512,7 +512,7 @@ class AdminController extends BaseAdminController
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->dispatch(EasyAdminEvents::PRE_UPDATE, array('entity' => $entity));
 
-            $this->executeDynamicMethod('preUpdate<EntityName>Entity', array($entity, true));
+//            $this->executeDynamicMethod('preUpdate<EntityName>Entity', array($entity, true));
             $this->executeDynamicMethod('update<EntityName>Entity', array($entity));
 
             $this->dispatch(EasyAdminEvents::POST_UPDATE, array('entity' => $entity));
