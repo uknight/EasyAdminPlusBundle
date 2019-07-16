@@ -642,9 +642,9 @@ class AdminController extends BaseAdminController
     /**
      * batch action.
      *
-     * @return Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Symfony\Component\HttpFoundation\Response
      */
-    public function batchAction(): RedirectResponse
+    public function batchAction(): Response
     {
         $name = $this->request->request->get('name') ?? $this->request->query->get('name');
         $ids = $this->request->request->get('ids') ?? $this->request->query->get('ids');
