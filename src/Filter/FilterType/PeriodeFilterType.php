@@ -34,6 +34,8 @@ class PeriodeFilterType extends AbstractFilterType
             $from = $to = null;
             $c = $this->alias . $this->columnName;
             if(isset($this->data['value']['from']) && $this->data['value']['from']) {
+                dump($this->data);
+                dump($this->format);
                 $from = DateTime::createFromFormat($this->format, $this->data['value']['from'])->format('Y-m-d');
                 $qb->andWhere($c. ' >= :var_from_' . $this->uniqueId);
                 $queryBuilder->setParameter('var_from_' . $this->uniqueId, $from);
