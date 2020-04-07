@@ -19,6 +19,7 @@ services:
         public: true
         arguments:
             - '@security.authorization_checker'
+    Lle\EasyAdminPlusBundle\Acl\Security\AdminAuthorizationChecker: '@lle.easy_admin_plus.acl.security.admin_authorization_checker'
     lle.easy_admin_plus.acl.event_listener.easy_admin_subscriber:
         class: Lle\EasyAdminPlusBundle\Acl\EventListener\EasyAdminSubscriber
         arguments:
@@ -145,6 +146,7 @@ services:
         public: true
         class:  '%lle.service.delete_batch.class%'
         arguments: ["@doctrine"]
+    Lle\EasyAdminPlusBundle\Service\Batch\DeleteBatch: '@lle.service.delete_batch'
             
     lle.easy_admin_plus.finder:
         public: true
@@ -166,6 +168,7 @@ services:
         public: true
         class:  'Lle\EasyAdminPlusBundle\Search\QueryBuilder'
         arguments: ["@doctrine", "@request_stack", "@lle.easy_admin_plus.filter_state"]
+    Lle\EasyAdminPlusBundle\Search\QueryBuilder: '@lle.easy_admin_plus.query_builder'
 
     lle.easy_admin_plus.wf_actions:
         class:  'Lle\EasyAdminPlusBundle\Service\Actions\WorkflowAction'

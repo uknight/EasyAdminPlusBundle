@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Lle\EasyAdminPlusBundle\Filter\FilterType\AbstractFilterType;
 use Lle\EasyAdminPlusBundle\Filter\HiddenEntity;
 
-class EntityFilterType extends AbstractFilterType
+class ToManyFilterType extends AbstractFilterType
 {
 
     protected $table;
@@ -38,9 +38,15 @@ class EntityFilterType extends AbstractFilterType
     {
         if (isset($this->data['value'])) {
             if ($this->getMultiple()) {
-                $queryBuilder->andWhere($queryBuilder->expr()->in($this->alias .$this->columnName, ':var_' . $this->uniqueId));
+                $queryBuilder
+                    ->andWhere(
+                        ":var_{$this->uniqueId} MEMBER OF " . $this->alias.$this->columnName
+                    );
             } else {
-                $queryBuilder->andWhere($queryBuilder->expr()->eq($this->alias .$this->columnName, ':var_' . $this->uniqueId));
+                $queryBuilder
+                    ->andWhere(
+                        ":var_{$this->uniqueId} MEMBER OF " . $this->alias.$this->columnName
+                    );
             }
 
             $queryBuilder->setParameter('var_' . $this->uniqueId, $this->data['value']);

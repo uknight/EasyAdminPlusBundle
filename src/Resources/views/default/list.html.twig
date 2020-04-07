@@ -4,7 +4,7 @@
 {% block search_action %}
     {% if _entity_config.search is defined and is_easyadmin_granted(_entity_config, 'search', null) %}
         {# Do not display SEARCH at all #}
-        {# { parent() } #}
+        {{ parent() }}
     {% endif %}
 {% endblock %}
 
@@ -258,7 +258,7 @@
                 {# Initialize #}
 
                 {% if _entity_config.tree is defined and _entity_config.tree %}
-                    {% set levelShift = (paginator.currentPageResults|first).level %}
+                    {% set levelShift = (paginator.currentPageResults|first).lvl %}
                     {% set tree_parents = [] %}
                     {% set previous_item = null %}
                     {% set root_item = null %}
@@ -287,7 +287,7 @@
                                 'lft':previous_item.lft,
                                 'rgt':previous_item.rgt}]) %}
                             {% else %}
-                                {% set tree_parents = tree_parents|slice(0, item.level - levelShift) %}
+                                {% set tree_parents = tree_parents|slice(0, item.lvl - levelShift) %}
                                 {% set parent = tree_parents|last %}
                                 {% if parent %}
                                     {% set parent_id = parent.id %}

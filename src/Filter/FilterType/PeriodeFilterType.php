@@ -36,14 +36,20 @@ class PeriodeFilterType extends AbstractFilterType
             if(isset($this->data['value']['from']) && $this->data['value']['from']) {
                 // dump($this->data);
                 // dump($this->format);
-                $from = DateTime::createFromFormat($this->format, $this->data['value']['from'])->format('Y-m-d');
+                $dateTime = DateTime::createFromFormat($this->format, $this->data['value']['from']);
+                
+                $from = $dateTime ? $dateTime->format('Y-m-d') : null;
                 $qb->andWhere($c. ' >= :var_from_' . $this->uniqueId);
                 $queryBuilder->setParameter('var_from_' . $this->uniqueId, $from);
             }
             if(isset($this->data['value']['to']) && $this->data['value']['to']) {
                 $to = DateTime::createFromFormat($this->format, $this->data['value']['to']);
-                $to->modify('+1 day');
-                $to = $to->format('Y-m-d');
+                if ($to) {
+                    $to->modify('+1 day');
+                    $to = $to->format('Y-m-d');
+                } else {
+                    $to = null;
+                }
                 $qb->andWhere($c.' < :var_to_'.$this->uniqueId);
                 $queryBuilder->setParameter('var_to_' . $this->uniqueId, $to);
             }

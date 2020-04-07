@@ -2,7 +2,8 @@
 
 namespace Lle\EasyAdminPlusBundle\Controller;
 
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+// use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use EasyCorp\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,12 +17,25 @@ use Lle\EasyAdminPlusBundle\Filter\FilterState;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType;
+use Lle\EasyAdminPlusBundle\Acl\Security\AdminAuthorizationChecker;
+use Lle\EasyAdminPlusBundle\Search\QueryBuilder;
+use Lle\EasyAdminPlusBundle\Service\Batch\DeleteBatch;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\Registry;
 
-class AdminController extends BaseAdminController
+class AdminController extends EasyAdminController
 {
+
+    public static function getSubscribedServices(): array
+    {
+        return array_merge(parent::getSubscribedServices(), [
+            'lle.easy_admin_plus.query_builder' => QueryBuilder::class,
+            'lle.easy_admin_plus.filter_state' => FilterState::class,
+            'lle.easy_admin_plus.acl.security.admin_authorization_checker' => AdminAuthorizationChecker::class,
+            'lle.service.delete_batch' => DeleteBatch::class,
+        ]);
+    }
 
     /**
      * {@inheritdoc}

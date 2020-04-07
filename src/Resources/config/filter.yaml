@@ -33,6 +33,7 @@ services:
         public: true
         class:  'Lle\EasyAdminPlusBundle\Filter\FilterState'
         arguments: ["@doctrine.orm.entity_manager", '@Lle\EasyAdminPlusBundle\Filter\FilterChain']
+    Lle\EasyAdminPlusBundle\Filter\FilterState: '@lle.easy_admin_plus.filter_state'
 
     Lle\EasyAdminPlusBundle\Filter\FilterChain:
         arguments: [!tagged lle.easy_admin_plus.filter]
