@@ -17,8 +17,12 @@ class TreeFilterType extends EntityFilterType
      */
     public function configure(array $config = [])
     {
-        if(!isset($config['method'])) $config['method'] = 'getChildren';
+        if (!isset($config['method'])){
+            $config['method'] = 'getChildren';
+        }
+
         parent::configure($config);
+
         $this->startLevel = $config['start_level'] ?? 1;
     }
 
@@ -29,9 +33,9 @@ class TreeFilterType extends EntityFilterType
      */
     public function apply($queryBuiler)
     {   
-        if (isset($data['value'])) {
+        if (isset($this->data['value'])) {
             if($this->getMultiple()){
-              $nodes = $this->em->getRepository($this->table)->findById($data['value']);
+              $nodes = $this->em->getRepository($this->table)->findById($this->data['value']);
               $ids = array();
               foreach($nodes as $node){
                 $ids[] = $node;
@@ -40,25 +44,27 @@ class TreeFilterType extends EntityFilterType
               }
 
             }else{
-              $node = $this->em->getRepository($this->table)->find($data['value']);
+              $node = $this->em->getRepository($this->table)->find($this->data['value']);
               $children = $this->em->getRepository($this->table)->children($node,false);
               $ids = array($node);
               foreach($children as $child){
                   $ids[] = $child->getId();
               }
             }
-            $queryBuilder->andWhere($queryBuilder->expr()->in($alias . $col, $ids));
+            $queryBuiler->andWhere($queryBuiler->expr()->in($this->alias .$this->columnName, $ids));
         }
     }
 
-    public function getEntities($data){
+    public function getEntities($data = null)
+    {
         $em = $this->em; 
         $m = $this->method;
         $elements = $em->getRepository($this->table)->$m();
         return $elements;
     }
 
-    public function getValueEntity($entity){
+    public function getValueEntity($entity)
+    {
       $return = null;
       if($this->display($entity)){
         for($i = $this->startLevel; $i < $entity->getLvl();$i++) $return .= '-';
@@ -66,11 +72,13 @@ class TreeFilterType extends EntityFilterType
       }
     }
 
-    public function display($entity){
+    public function display($entity)
+    {
       return ($entity->getLvl() >= $this->startLevel);
     }
 
-    public function getTemplate(){
+    public function getTemplate()
+    {
         return '@LleEasyAdminPlus/filter/type/tree_filter.html.twig';
     }
 

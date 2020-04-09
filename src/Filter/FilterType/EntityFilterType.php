@@ -49,7 +49,7 @@ class EntityFilterType extends AbstractFilterType
 
     public function getEntities($data) 
     {
-        if ($this->isHidden()) { //si le filtre est hidden pas de requet. héééé ouai
+        if ($this->isHidden()) { //if the filter is hidden no request. hey yeah
             $elements = array();
             if (is_array($data['value'])) {
                 foreach ($data['value'] as $value) {
@@ -62,16 +62,17 @@ class EntityFilterType extends AbstractFilterType
             $m = $this->method;
             $args = $this->args;
             $repo = $this->em->getRepository($this->table);
-            if($args){
+            if ($args) {
                 $classRfx = new \ReflectionClass(get_class($repo));
                 $methodRfx = $classRfx->getMethod($m);
                 $elements = $methodRfx->invokeArgs($repo,$args);
-            }else{
+            } else {
                 $elements = $repo->$m();
             }
         }
         return $elements;
     }
+
     public function getItemLabel($id) {
         $repo = $this->em->getRepository($this->table);
         $obj = $repo->find($id);

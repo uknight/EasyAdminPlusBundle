@@ -258,7 +258,7 @@
                 {# Initialize #}
 
                 {% if _entity_config.tree is defined and _entity_config.tree %}
-                    {% set levelShift = (paginator.currentPageResults|first).lvl %}
+                    {% set levelShift = (paginator.currentPageResults|first) ? (paginator.currentPageResults|first).lvl : null %}
                     {% set tree_parents = [] %}
                     {% set previous_item = null %}
                     {% set root_item = null %}
