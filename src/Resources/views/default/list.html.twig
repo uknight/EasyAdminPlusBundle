@@ -15,14 +15,12 @@
     {% block filters %}
         {{ include('@LleEasyAdminPlus/default/includes/_filters.html.twig') }}
     {% endblock %}
-
 {% endblock %}
 
 
 {% block global_actions %}
     <div style="float:right;">
         <div class="button-action">
-
             {% set _list_item_actions = easyadmin_get_actions_for_list_item(_entity_config.name) %}
             {% set _list_item_actions = _list_item_actions|prune_item_actions(_entity_config, [], null) %}
             {% for action in _list_item_actions if (action.global is defined and action.global) %}
@@ -90,7 +88,6 @@
                 {% endblock new_action %}
             {% endif %}
         </div>
-
     </div>
 {% endblock global_actions %}
 
@@ -205,7 +202,7 @@
     {% set _list_item_actions = easyadmin_get_actions_for_list_item(_entity_config.name) %}
 
 
-    {#{{ include(_entity_config.templates.paginator) }}#}
+    {# {{ include(_entity_config.templates.paginator) }} #}
 
     {% if _entity_config.list.hasBatchActions %}
         <form action="#" method="POST" name="bulkform">
@@ -361,7 +358,6 @@
             {{ include('@EasyAdmin/default/includes/_batchs.html.twig', {'position': 'bottom'})  }}
             </form>
         {% endif %}
-
     {% endblock batchActions %}
 
 

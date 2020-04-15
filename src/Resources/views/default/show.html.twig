@@ -102,8 +102,8 @@
               {% block show_field %}
                   {% if easyadmin_render_field_for_show_view(_entity_config.name, entity, metadata) != '' %}
                   
-                  <div class="form-group field-{{ metadata.type|default('default')|lower }} {{ metadata.css_class|default('') }}">
-                      <label class="{{ label_css_class|default('col-sm-2') }}  control-label">
+                  <div class="row my-2 field-{{ metadata.type|default('default')|lower }} {{ metadata.css_class|default('') }}">
+                      <label class="{{ label_css_class|default('col-sm-2') }} label text-right control-label">
                           {{ (metadata.label ?: field|humanize)|trans(_trans_parameters)|raw }}
                       </label>
                       <div class="{{ value_css_class|default('col-sm-10') }} ">

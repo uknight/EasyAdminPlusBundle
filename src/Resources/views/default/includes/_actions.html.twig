@@ -9,9 +9,10 @@
             {% set route_params = route_params|merge(action.route_params) %} 
         {% endif %}
         {% set action_href = path(action.name, route_params) %}
-    {%  elseif 'template' == action.type %}
+    {%  elseif 'template' == action.type %}x
         {% set action_href = null %}
-        {{ include('easy_admin/' ~ app.request.query.get('entity') ~'/' ~ action.template) }}
+        {# {{ include('easy_admin/' ~ app.request.query.get('entity') ~'/' ~ action.template) }} #}
+        {# {{ include(action.template) }} #}
     {% elseif 'print' == action.type %}
         {% set action_href = 'javascript:print();' %}
         {% if 'list' != action.name %}
@@ -22,14 +23,25 @@
     {% if action.tab is defined %}
         {% set action_href = action_href ~ "#" ~ action.tab %}
     {% endif %}
+
+    {{ include(action.template, {
+      action: action,
+      action_href: action_href,
+      is_dropdown: is_dropdown|default(false),
+      item: item|default(null),
+      item_id: item_id,
+      request_parameters: request_parameters,
+      translation_domain: translation_domain,
+      trans_parameters: trans_parameters,
+    }, with_context = false) }}
     
-    <a class="{{ action.css_class|default('') }}" title="{{ action.label|trans(arguments = trans_parameters|merge({ '%entity_id%': item_id }), domain = translation_domain) }}" href="{{ action_href }}" target="{{ action.target }}">
+    {# <a class="{{ action.css_class|default('') }}" title="{{ action.label|trans(arguments = trans_parameters|merge({ '%entity_id%': item_id }), domain = translation_domain) }}" href="{{ action_href }}" target="{{ action.target }}">
         
         {% if action.icon %}
-            {# Config icon #}
+            {# Config icon #
             <i class="fa fa-{{ action.icon }}"></i>
         {% else %}
-            {# Default icons #}
+            {# Default icons #
             {% if action.name == "show" %}
                 <i class="fa fa-search"></i>
             {% elseif action.name == "edit" %}
@@ -41,13 +53,13 @@
             {% endif %}
         {% endif %}
         {% if app.request.query.get('action') not in ['show', 'edit', 'new'] %}        
-            {# Still allow to put labels, by specifying "title" #}
+            {# Still allow to put labels, by specifying "title" #
             {% if action.title is defined and not action.title is empty %}
                 {{ action.title|trans(arguments = trans_parameters|merge({ '%entity_id%': item_id }), domain = translation_domain) }}
             {% endif %}
         {% else %}
             {{ action.label|trans(arguments = trans_parameters|merge({ '%entity_id%': item_id }), domain = translation_domain) }}
         {% endif %}
-    </a>
+    </a> #}
 {% endfor %}
 
