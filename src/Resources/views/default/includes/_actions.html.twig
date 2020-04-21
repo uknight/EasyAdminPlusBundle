@@ -9,7 +9,7 @@
             {% set route_params = route_params|merge(action.route_params) %} 
         {% endif %}
         {% set action_href = path(action.name, route_params) %}
-    {%  elseif 'template' == action.type %}x
+    {%  elseif 'template' == action.type %}
         {% set action_href = null %}
         {# {{ include('easy_admin/' ~ app.request.query.get('entity') ~'/' ~ action.template) }} #}
         {# {{ include(action.template) }} #}
