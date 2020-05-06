@@ -157,6 +157,7 @@ services:
         public: true
         class:  'Lle\EasyAdminPlusBundle\Search\Autocomplete'
         arguments: ["@easyadmin.config.manager", "@lle.easy_admin_plus.finder", "@property_accessor"]
+    Lle\EasyAdminPlusBundle\Search\Autocomplete: '@lle.easy_admin_plus.autocomplete'
 
 
     lle.easy_admin_plus.filter_bag_subscriber:

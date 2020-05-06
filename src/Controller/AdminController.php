@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType;
 use Lle\EasyAdminPlusBundle\Acl\Security\AdminAuthorizationChecker;
+use Lle\EasyAdminPlusBundle\Search\Autocomplete;
 use Lle\EasyAdminPlusBundle\Search\QueryBuilder;
 use Lle\EasyAdminPlusBundle\Service\Batch\DeleteBatch;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,6 +35,7 @@ class AdminController extends EasyAdminController
             'lle.easy_admin_plus.filter_state' => FilterState::class,
             'lle.easy_admin_plus.acl.security.admin_authorization_checker' => AdminAuthorizationChecker::class,
             'lle.service.delete_batch' => DeleteBatch::class,
+            'lle.easy_admin_plus.autocomplete' => Autocomplete::class,
         ]);
     }
 
