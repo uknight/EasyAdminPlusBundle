@@ -24,7 +24,8 @@ class FilterChain
         return $this->filters;
     }
 
-    public function get($filterName, $filterConfig): FilterTypeInterface{
+    public function get($filterName, $filterConfig): FilterTypeInterface
+    {
         $filter = clone $this->filters[$filterName];
         $filter->init($filterConfig['property'], $filterConfig['label'] ?? null);
         $filter->configure($filterConfig['config']);
