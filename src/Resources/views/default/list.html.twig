@@ -96,8 +96,7 @@
     {{ parent() }}
     <script type="text/javascript">
         $(document).ready(function(){
-
-            $("body.list .table-responsive table.table").treetable({ expandable: true, nodeIdAttr: 'id', parentIdAttr: 'parentId' });
+            $("body.list .table-responsive table.table").treetable({ expandable: true, nodeIdAttr: 'id', parentIdAttr: 'parentId', indent: {{ _entity_config.list.indent|default(19) }} });
         });
 
         var lle = {
