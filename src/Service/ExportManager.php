@@ -43,7 +43,8 @@ class ExportManager
         if($value instanceOf \DateTime){
             return $value->format($field['format']);
         }elseif(is_array($value)){
-            return implode(',', $value);
+            // return implode(',', $value);
+            return json_encode($value);
         }elseif(is_object($value)){
             return (string)$value;
         }
